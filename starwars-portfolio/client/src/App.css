@@ -1,0 +1,20 @@
+@keyframes crawl {
+  0% {
+    top: 0;
+    transform: rotateX(20deg)  translateZ(0);
+  }
+  99% {
+    top: 100%;
+    transform: rotateX(25deg) translateY(-5000px);
+  }
+  100%{
+    display:none;
+  }
+}
+
+#semesterId{
+  font-size: inherit;
+
+}
+
+html, body {margin: 0; height: 100%; overflow: hidden}
