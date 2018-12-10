@@ -1,0 +1,44 @@
+{
+  "_id" : ObjectId("5bebff2d44dc098f4b0685fd"),
+  "materias" : [
+    {
+      "nome_materia" : "Legislação Aplicada à Internet",
+      "descricao" : "Esta matéria nos ensina como a parte jurídica da informática, se aprofundando um pouco sobre a perícia forense computacional, e o software que pode ser usado realizá-la.  ",
+      "link" : "https://goo.gl/5G1TmB"
+    },
+    {
+      "nome_materia" : "Estruturas de Dados",
+      "descricao" : "Esta matéria nos ensina melhor sobre as estruturas de dados presentes na linguagem C e no dia a dia da programação, como árvores, listas encadeadas e por contiguidade física e melhor gerenciamento de matrizes e vetores.",
+      "link" : "https://goo.gl/78tC1V"
+    },
+    {
+      "nome_materia" : "Redes e Internet",
+      "descricao" : "Aqui aprendemos melhor sobre a arquitetura de redes que compõem a internet e seus protocolos para transferência de dados, assim como suas funcionalidades, vantagens e desvantagens",
+      "link" : "https://goo.gl/8w3Ypo"
+    },
+    {
+      "nome_materia" : "Padrões de Projeto de Sítios Internet II",
+      "descricao" : "Aqui melhoramos os conhecimentos adquiridos de HTML e CSS do primeiro semestre, aprendendo o Web Design responsivo e a utilização de Frameworks, como o Foundations e o Bootstrap. ",
+      "link" : "https://goo.gl/qysJ7S"
+    },
+    {
+      "nome_materia" : "Prática de Design",
+      "descricao" : "Aqui aprofundamos os conhecimentos aprendidos no primeiro semestre, por meio de animações da web 2.0 (utilizando o flash), assim como ferramentas proprietárias para desenvolvimento de sites (inDesign) e animações em vídeo com o 3D Studio Max.  ",
+      "link" : "https://goo.gl/8oBJw4"
+    },
+    {
+      "nome_materia" : "Matemática Discreta",
+      "descricao" : "Aqui melhoramos conceitos da matemática vistos nos primeiros, porém melhor focando-os para a área informática, podendo assim ser aplicado em diferentes subáreas do desenvolvimento, direta ou indiretamente.",
+      "link" : "https://goo.gl/9GZ8gL"
+    }
+
+
+
+
+  ],
+  "num" : 2,
+  "nome" : "teste",
+  "crawlTitle" : "Semestre 2",
+  "crawlSubtitle" : "Desafio Estrutural",
+  "crawlText" : "A força continua a exercer a sua influência sobre o legado do nosso jovem Padawan. Depois dos primeiros resultados de sua jornada, ele está decidido a continuar no caminho. Além disso, neste semestre, há rumores de que se apresenta um novo desafio, que haveria possivelmente abalado a muitos, no entanto, nosso herói não deixará que sua estrutura seja abalada. Afinal, como diz o Mestre Yoda, “Uma vez iniciado no caminho ao lado negro, para sempre ele vai dominar seu destino, consumi-lo ele vai”.  Desta forma, a jornada do nosso herói continua... "
+}

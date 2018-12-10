@@ -1,0 +1,40 @@
+{
+  "_id" : ObjectId("5bec012d44dc098f4b06869b"),
+  "materias" : [
+    {
+      "nome_materia" : "Servidores e Seus Sistemas Operacionais",
+      "descricao" : "Aqui aprendemos como funciona a estrutura dos sistemas operacionais, assim como o contexto no qual eles se desenvolveram. Além disso, aprende-se um pouco sobre servidores, seus tipos e melhores práticas. ",
+      "link" : "https://goo.gl/wc9ZG9"
+    },
+    {
+      "nome_materia" : "Programação de Sítios Internet",
+      "descricao" : "Aqui se aprende melhor sobre a composição das páginas web por meio do Javascript, uma linguagem client side e server side, cujos conceitos mais avançados compõem as tecnologias deste site. ",
+      "link" : "https://goo.gl/JrX8va"
+    },
+    {
+      "nome_materia" : "Engenharia de Software para WEB",
+      "descricao" : "Aqui se aprende melhor como organizar projetos por meio das recomendações da indústria, assim como o ciclo do software e as metodologias ágeis. ",
+      "link" : "https://goo.gl/Bjxgus"
+    },
+    {
+      "nome_materia" : "Acessibilidade",
+      "descricao" : "Aqui se aprende a criar sites acessíveis a pessoas a não somente pessoas com alguma deficiência física ou motora, mas também um site acessível à maior parte das pessoas na web. ",
+      "link" : "https://goo.gl/VnfoQE"
+    },
+    {
+      "nome_materia" : "Banco de dados e Internet I",
+      "descricao" : "Aqui temos uma introdução ao banco de dados relacional, usando o PostgresSQL, sendo assim uma maneira de armazenamento de dados. Além disso, se aprofunda na aplicação da teoria dos conjuntos. ",
+      "link" : "https://goo.gl/eRFjt5"
+    },
+    {
+      "nome_materia" : "Estatística",
+      "descricao" : "Aqui se aprende melhor a matéria de estatística e análise de amostras e dados, presente e essencial na ciência de dados. Aprendemos como lidar com diversos tipos de amostragens e distribuições. ",
+      "link" : "https://goo.gl/jPp8mM"
+    }
+  ],
+  "num" : 3,
+  "nome" : "teste",
+  "crawlTitle" : "Semestre 3",
+  "crawlSubtitle" : "O despertar da Força ",
+  "crawlText" : "Nosso herói já está se acostumando com o poder que a força tem exercido sobre ele, trazendo mais maturidade e dedicação durante os seus estudos. Com isso em mente, ele busca estudar mais e mais, cada vez alimentando-se mais de anedotas, não somente colaborando com a força exercida sobre ele, mas também tomando papel protagonista na sua busca por se tornar um Jedi da programação, entendendo os “se” e os porquês da sua jornada. Afinal, com diz o George Lucas: “se você quer ter sucesso em uma área em particular, a perseverança é uma das qualidades-chave”. "
+}

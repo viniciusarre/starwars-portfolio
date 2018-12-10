@@ -1,0 +1,13 @@
+{
+  "name": "starwars-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "npm frontend && npm backend",
+    "frontend": "cd client && react-scripts run",
+    "backend" : "cd server && npm start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "_id" : ObjectId("5bfd2c320e8192ebcede3333"),
+  "materias" : [
+
+    {
+      "nome_materia" : "Negócios e Marketing e Eletrônicos",
+      "descricao" : "Aprendemos conteúdos de marketing e os aplicamos para a área, estudando diversos casos que corroboram as abordagens utilizadas por diversas empresas.  ",
+      "link" : "https://goo.gl/7GPMBB"
+    },
+    {
+      "nome_materia" : "Desenv. para Servidores II",
+      "descricao" : "Neste semestre, aprofundamos a aplicação de MVC com PHP usando, melhorando a maneira em que se pode reutilizar o código. Além disso, aprendemos AJAX e sessões para autenticação de usuários.",
+      "link" : "https://goo.gl/ni6Ji3"
+    },
+    {
+      "nome_materia" : "Proj. de Prototipagem e Testes de Usabilidade",
+      "descricao" : "Aprendemos a criar e desenvolver protótipos de aplicações web, levando em conta conceitos de usabilidade do usuário",
+      "link" : "https://goo.gl/kFYxua"
+    },
+    {
+      "nome_materia" : "Desenv. para Dispositivos Móveis I",
+      "descricao" : "Aprendemos a fazer um CRUD básico usando Java com Android e o banco de dados interno, chamado de SQLite. ",
+      "link" : "https://goo.gl/ychSk9"
+    },
+    {
+      "nome_materia" : "Tópicos Especiais II",
+      "descricao" : "Revisamos as matérias do semestre anterior e aprendemos a fazer uma relação muitos para muitos, com tabelas do banco de dados. ",
+      "link" : "https://goo.gl/adXej6"
+    },
+    {
+      "nome_materia" : "Projeto de TG I",
+      "descricao" : "Colocamos os conhecimentos aprendidos em outras matérias em prática para criarmos nosso portfólio... ",
+      "link" : "https://goo.gl/TrN5jo"
+    }
+  ],
+  "num" : 5,
+  "nome" : "teste",
+  "crawlTitle" : "Semestre 5",
+  "crawlSubtitle" : "Homecoming",
+  "crawlText" : "Depois de voltar da viagem, cansado, porém com muitas experiências na bagagem, nosso herói volta a reexplorar o território novamente, reencontrando colegas antigos, se aproximando de novos... como em um filme adolescente... pela primeira vez, o maior vilão não era o ponto e vírgula, mas sim comparações. No entanto, isso será combatido com o passar do semestre. Afinal, como dizia o Han Solo, “Chewie, we’re home!”."
+}

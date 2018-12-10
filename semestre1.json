@@ -1,0 +1,46 @@
+{
+  "_id" : ObjectId("5be29d0bcd249a19f836381a"),
+  "materias" : [
+    {
+      "nome_materia" : "Algoritmos e Lógica de Programação",
+      "descricao" : "Nesta matéria, eu pude descobrir mais sobre a lógica matemática por trás dos algoritmos, entendendo, desde uma introdução simples em linguagem Portugol, até a linguagem C, o funcionamento e raison d'être da programação.",
+      "link" : "https://goo.gl/KS7Dyf"
+    },
+    {
+      "nome_materia" : "Bases da Internet",
+      "descricao" : "Nesta matéria, se aprofunda muito na história de como surgiu a web, sua ascensão e tudo o que houve desde a Arpanet até a guerra dos consoles, sendo uma introdução necessária para conhecer a indústria em si... ",
+      "link" : "https://goo.gl/yNVJFt"
+    },
+    {
+      "nome_materia" : "Criação de Conteúdo na Web",
+      "descricao" : "Esta matéria ensina como usar as mídias sociais para atingir um público alvo e assim conseguir fazer divulgação de um produto ou serviço na web. Durante o período letivo, administramos o conteúdo de uma página do Facebook para praticar os conceitos aprendidos.",
+      "link" : "https://goo.gl/X8gxDH"
+    },
+    {
+      "nome_materia" : "Design Digital",
+      "descricao" : "Nesta matéria, aprendi os conceitos iniciais de design, tais como cores e texturas e como utilizá-los de maneira harmoniosa em uma página web. Utilizamos o Corel Draw e o Photoshop para aplicarmos o que aprendemos.",
+      "link" : "https://goo.gl/yXR8ex"
+    },
+    {
+      "nome_materia" : "Padrões de Projeto de Sítios Internet I",
+      "descricao" : "Neste site, aprendemos a criar websites com a linguagem de marcação HTML, e além disso, a criarmos nossas páginas e servi-las. Com o auxílio de CSS, aprendemos a estruturar uma página básica, criando nosso blog pessoal contando o trajeto do semestre.",
+      "link" : "https://goo.gl/X8gxDH"
+    },
+    {
+      "nome_materia" : "Leitura e Produção de Textos",
+      "descricao" : "Aqui aprendemos a lidar com a linguagem técnica e a redigir textos em bom português. Foram interpretados e analisados diversos tipos de texto e linguagem... assim como produção de artigos próprios.",
+      "link" : "https://goo.gl/wzoHxP"
+    },
+    {
+      "nome_materia" : "Fundamentos de Matemática Elementar",
+      "descricao" : "Fez-se um repasso de todas as matérias relacionadas à matemática do ensino médio, com um foco um pouco mais avançado, para então aplicá-las à área.",
+      "link" : "https://goo.gl/7VmBxy"
+    }
+
+  ],
+  "num" : 1,
+  "nome" : "teste",
+  "crawlTitle" : "Semestre 1",
+  "crawlSubtitle" : "Um novo risco",
+  "crawlText" : "Um jovem Padawan se aventurou no explorado mundo do desenvolvimento web. A vontade da Força estava além de suas expectativas ou previsões, afinal, ele nunca havia antes estudado ou feito algo similar. Programação não era o tipo de linguagem que ele tinha alguma forma de afinidade, mesmo tendo algo em comum às capacidades do C3PO.\n Como já disse Darth Plagueis a Darth Sidious, “Dizer que a força opera de maneira misteriosa é admitir a sua ignorância, já que cada mistério pode ser resolvido por meio da aplicação do conhecimento e do esforço constante”. Sua jornada o levará a lugares desconhecidos e oportunidades únicas, sempre lutando contra o pior vilão de todos os informáticos: O ponto e vírgula. \n Nossa história começa no primeiro semestre… no pequeno condado de Jales… "
+}

@@ -1,0 +1,40 @@
+{
+  "_id" : ObjectId("5bfd2c1a0e8192ebcede332a"),
+  "materias" : [
+    {
+      "nome_materia" : "Banco de Dados e Internet II ",
+      "descricao" : "Nesta matéria, revemos os conceitos aprendidos no semestre anterior e nos aprofundamos em mais conceitos de bancos de dados, conhecendo mais funcionalidades do PostgreSQL.",
+      "link" : "https://goo.gl/jztLPa"
+    },
+    {
+      "nome_materia" : "Prática de Gestão de Projetos",
+      "descricao" : "Nesta matéria, aprendemos as diretrizes do PMBOK para o gerenciamento de projetos e trabalho em equipe, todas as suas fazes e ciclo de vida. Uma matéria complementar com a de Engenharia de Software, do semestre anterior. ",
+      "link" : "https://goo.gl/ZDFKX8"
+    },
+    {
+      "nome_materia" : "Desenvolvimento para Servidores I",
+      "descricao" : "Aqui aprendemos mais sobre a linguagem de programação PHP e o papel desenvolvido por ela no desenvolvimento web, assim como começamos a trabalhar com o padrão MVC. ",
+      "link" : "https://goo.gl/CgNfkB"
+    },
+    {
+      "nome_materia" : "Segurança em Sistemas para Internet",
+      "descricao" : "Nesta matéria, aprendemos melhor como garantir a segurança informática em sistemas web, aprofundando nos conceitos estudados em redes, de maneira tanto prática quanto teórica.",
+      "link" : "https://goo.gl/CEcik3"
+    },
+    {
+      "nome_materia" : "Projeto de Navegação e Interação",
+      "descricao" : "Nesta matéria, aprendemos a melhorar a usabilidade do site, melhorando a maneira pela qual o usuário utiliza o website, descomplicando algumas coisas para, assim, atingir a melhor experiência, por meio de conceitos de UX e UI. ",
+      "link" : "https://goo.gl/MQKDNy"
+    },
+    {
+      "nome_materia" : "Tópicos Especiais em Sistemas para Internet I",
+      "descricao" : "Aqui se aplicam conceitos do MVC e da orientação a objetos ao desenvolvimento de aplicações em Java, por meio do JSP. ",
+      "link" : "https://goo.gl/Q8TLaU"
+    }
+  ],
+  "num" : 4,
+  "nome" : "teste",
+  "crawlTitle" : "Semestre 4",
+  "crawlSubtitle" : "Uma Oportunidade Surge ",
+  "crawlText" : "Entrando em um semestre novo, nosso herói embarca em uma nova aventura e começa a explorar o mundo formado a sua volta e o papel que ele exerce sobre ele. Um tanto como um desafio existencialista, mas de muito aprendizado. Em buscas como essas, que o levou a aprender muito, ele conquistou um intercâmbio nas terras desconhecidas do Chile. Mas, essa história fica para um spin off blockbuster milionário. Afinal, como dizia o Mestre Yoda (sim, de novo!), “Sempre em movimento, o futuro está!” "
+}
