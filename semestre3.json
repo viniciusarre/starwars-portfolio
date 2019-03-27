@@ -1,5 +1,4 @@
 {
-  "_id" : ObjectId("5bec012d44dc098f4b06869b"),
   "materias" : [
     {
       "nome_materia" : "Servidores e Seus Sistemas Operacionais",

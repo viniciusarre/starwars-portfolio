@@ -1,5 +1,4 @@
 {
-  "_id" : ObjectId("5bfd2c1a0e8192ebcede332a"),
   "materias" : [
     {
       "nome_materia" : "Banco de Dados e Internet II ",

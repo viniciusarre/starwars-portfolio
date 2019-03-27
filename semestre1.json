@@ -1,5 +1,4 @@
 {
-  "_id" : ObjectId("5be29d0bcd249a19f836381a"),
   "materias" : [
     {
       "nome_materia" : "Algoritmos e Lógica de Programação",
