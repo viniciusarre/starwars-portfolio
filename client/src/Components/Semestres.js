@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Grid, Panel, InputGroup, Button } from 'react-bootstrap';
+import { Row, Col, Grid, Panel, Button, FormControl } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import mainLogo from'../logo_portfolio.png';
@@ -13,8 +13,46 @@ class Semestres extends Component{
             semestres: [],
             loading: true,
             buscando: false,
-            busca: ""
+            busca: "",
+            name: "",
+            email: "",
+            message:""
         };
+    }
+
+    sendEmail(){
+        console.log('name >> ', this.state.name);
+        console.log('email >> ', this.state.email);
+        console.log('message >> ', this.state.message);
+        const data = {
+            name: this.state.name,
+            email:  this.state.email,
+            message:  this.state.message
+        };
+        console.log("DATA >> ", data);
+        const config = {
+            headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            params: {
+                name: this.state.name,
+                email:  this.state.email,
+                message:  this.state.message
+            }
+        };
+
+        axios.post("http://localhost:5000/contact",{
+            name: this.state.name,
+            email:  this.state.email,
+            message:  this.state.message
+        }, config)
+        .then(result=>{
+            console.log("THEN");
+            console.log("EP >> ", result);
+        
+        }).catch(err=>{
+        console.log("CATCH >> ", err);
+        });
     }
 
     componentDidMount(){
@@ -133,20 +171,27 @@ class Semestres extends Component{
                                                 </div>
                                                 Olá, meu nome é <span className="p-name">Vinícius Arré</span>, 
                                                 tenho 21 anos e moro em <span className="p-locality">Fernandópolis, São Paulo</span>. 
-                                                Trabalho como <span className="p-job-title">desenvolvedor full stack na startup </span>
-                                                Taskeo (que está distribuída ao redor do mundo, 
-                                                mas que o fundador se encontra no <span className="p-locality">Japão</span>). 
-                                                <span className="p-note">
-                                                    Gosto bastante de consumir conteúdos que possuam muita 
+                                                Sou <span className="p-job-title">Desenvolvedor Full Stack Freelancer,  </span>
+                                                tendo tido clientes em diferentes países, como 
+                                                <span className="p-locality"> Japão, França, Brasil, Chile e Inglaterra</span>.  
+                                                <span className="p-note"> 
+                                                     Gosto bastante de consumir diversos tipos conteúdos que possuam muita 
                                                     história, e meus hobbies são baseados nisso (ou seja, 
                                                     gosto de jogar, ler, ver filmes e séries etc.). 
                                                     Além disso, tenho uma curiosidade muito grande por idiomas, 
                                                     o que me leva a aprender vários.
                                                 </span>
                                                 <br/>
-                                                Para entrar em contato, <a href="mailto:viniciusarre@gmail.com" className="u-email">envie-me um e-mail</a>
+                                                Para entrar em contato, preencha o formulário abaixo:  
+                                                {/* <a href="mailto:viniciusarre@gmail.com" className="u-email">envie-me um e-mail</a> */}
                                             </div>
                                         </div>
+                                        <Col lg={6} lgOffset={3}>
+                                            Nome: <FormControl  onChange={(e)=>this.setState({ name: e.target.value })}></FormControl>
+                                            Email: <FormControl  type="email" onChange={(e)=>this.setState({ email: e.target.value })}></FormControl>
+                                            Mensagem: <FormControl componentClass="textarea" onChange={(e)=>this.setState({ message: e.target.value })} />
+                                            <Button  bsStyle="primary" bsSize="large" style={{marginTop: 10}} onClick={()=>this.sendEmail()}>Enviar</Button>
+                                        </Col>
                                 </Col>
                             </Row>
                         </Grid>

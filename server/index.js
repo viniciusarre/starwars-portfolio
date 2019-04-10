@@ -6,6 +6,8 @@ const app = express();
 const db = require("./src/config/db");
 import * as Controller from "./src/modules/semestre/controller";
 import * as BioController from './src/modules/bio/controller';
+import * as ContactController from './src/modules/contact/controller';
+
 app.use((req, res, next) => {
     res.append('Access-Control-Allow-Origin', ['*']);
     res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -20,6 +22,7 @@ require('babel-register')({
 app.get('/semestre/', Controller.getSemestre);
 app.get('/episodios/', Controller.getEpisodios);
 app.get('/sobre/', BioController.getSobre);
+app.post("/contact/", ContactController.contact);
 
 app.listen(port, (err) => {
     if (err) {
