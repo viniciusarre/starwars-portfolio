@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 module.exports = ()=>{
-    global.db = mongoose.connect('mongodb://localhost:27017/portfolio',  { useNewUrlParser: true });
+// mongodb://dev:d3vpass@ds119304.mlab.com:19304/portfolio
+// d3vpass
+    global.db = mongoose.connect('mongodb://dev:d3vpass@ds119304.mlab.com:19304/portfolio',  { useNewUrlParser: true });
     mongoose.connection.on('connected', function () {
         console.log('=====Conexão estabelecida com sucesso=====');
     });

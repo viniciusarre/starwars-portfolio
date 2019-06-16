@@ -1,5 +1,6 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
-
+# dist
+/server/dist
 # dependencies
 /client/node_modules
 /server/node_modules

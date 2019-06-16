@@ -4,15 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel index.js -d dist",
+    "build": "babel ./src  -d ./dist",
     "start": "npm run build && node dist/index.js",
-    "dev": "nodemon index.js --exec babel-node --presets babel-preset-env",
+    "dev": "nodemon src/index.js --exec babel-node --presets babel-preset-env",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vinícius Arré",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.3.10",
     "nodemailer": "^6.1.0",
     "nodemon": "^1.18.10"

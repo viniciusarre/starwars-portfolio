@@ -1,4 +1,4 @@
 module.exports = {
-    email: "",
-    password: ""
+    email: "vinicius.arre@fatec.sp.gov.br",
+    password: "A19122010a"
 }
