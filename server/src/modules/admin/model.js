@@ -7,7 +7,7 @@ const adminSchema = new mongoose.Schema({
   token: { type: String }
 });
 
-userSchema.pre("save", next => {
+adminSchema.pre("save", next => {
   next();
 });
 

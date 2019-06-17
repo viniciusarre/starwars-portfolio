@@ -1,19 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 // import registerServiceWorker from './registerServiceWorker';
 import SemestreContainer from "./SemestreContainer";
-import {  Route } from "react-router";
-import { BrowserRouter } from 'react-router-dom';
+import AdminContainer from "./AdminContainer";
+import { Route } from "react-router";
+import { BrowserRouter } from "react-router-dom";
 import Semestres from "./Components/Semestres";
 import "./App.css";
+import Main from "./Components/Admin/Main";
 
 ReactDOM.render(
-    <BrowserRouter basename={"/"}>
-        <div>
-            <Route exact path={"/"} component={ Semestres }/>
-            <Route path={"/semestre/:num"} component={ SemestreContainer }/>
-        </div>
-    </BrowserRouter >
-    , document.getElementById('root')
+  <BrowserRouter basename={"/"}>
+    <div>
+      <Route exact path={"/"} component={Semestres} />
+      <Route path={"/semestre/:num"} component={SemestreContainer} />
+      <Route path={"/admin"} component={AdminContainer} />
+      <Route path={"/admin/home"} component={Main} />
+      <Route path={"/admin/semestre/:semester_id"} component={Main} />
+      <Route path={"/admin/bio/:bio_id"} component={Main} />
+    </div>
+  </BrowserRouter>,
+  document.getElementById("root")
 );
-
