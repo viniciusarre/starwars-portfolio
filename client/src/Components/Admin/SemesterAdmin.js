@@ -6,11 +6,8 @@ export default class SemesterAdmin extends Component {
   constructor() {
     super();
     this.state = {
-      _id: "",
-      crawlSubtitle: "",
-      crawlTitle: "",
-      crawlText: "",
-      materias: []
+      semester: {},
+      isLoading: false
       //   _id: props.semester._id !== undefined ? props.semester._id : "",
       //   crawlTitle:
       //     props.semester.crawlTitle !== undefined
@@ -28,6 +25,7 @@ export default class SemesterAdmin extends Component {
   async componentDidMount() {
     let link = this.props.match.params.semester_id;
     if (link !== "new") {
+      this.setState({ isLoading: true });
       try {
         let request = await Axios.post(
           "https://starwars-portfolio.herokuapp.com/getSemesterById",
@@ -36,24 +34,20 @@ export default class SemesterAdmin extends Component {
           }
         );
         let semester = request.data;
-        console.log("SEMESTER >> ", semester);
         this.setState({
-          _id: semester._id,
-          crawlSubtitle: semester.crawlSubtitle,
-          crawlTitle: semester.crawlTitle,
-          crawlText: semester.crawlText,
-          materias: semester.materias,
-          num: semester.num
+          semester,
+          isLoading: false
         });
       } catch (err) {
         console.log("ERR", err);
       }
-    } else {
-      let request = await Axios.get(
-        "https://starwars-portfolio.herokuapp.com/getSemesters"
-      );
-      this.setState({ number: request.data.length + 1 });
     }
+    // } else {
+    //   let request = await Axios.get(
+    //     "https://starwars-portfolio.herokuapp.com/getSemesters"
+    //   );
+    //   // this.setState({ number: request.data.length + 1 });
+    // }
   }
   render() {
     console.log(
@@ -66,15 +60,15 @@ export default class SemesterAdmin extends Component {
     let link = this.props.match.params.semester_id;
     console.log("PROPS >>  ", this.props);
     console.log("LINK >>  ", link);
-    return link === "new" ? (
+
+    return this.state.isLoading ? (
+      <div>Carregando...</div>
+    ) : link === "new" ? (
       <div>
         <SemesterForm />
       </div>
     ) : (
-      <div>
-        Hello world!
-        <div>Hello world!</div>
-      </div>
+      <SemesterForm semestre={this.state.semester} />
     );
   }
 }

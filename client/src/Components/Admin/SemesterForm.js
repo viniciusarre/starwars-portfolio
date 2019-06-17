@@ -10,43 +10,28 @@ import {
   Table
 } from "react-bootstrap";
 import { Redirect } from "react-router";
+import MateriaModal from "./MateriaModal";
+import {Link} from "react-router-dom";
+import mainLogo from "../../logo_portfolio.png";
 
 export default class SemesterForm extends Component {
   constructor(props) {
     super(props);
-    this.state =
-      props.semestre !== undefined
-        ? {
-            _id: props.semestre._id === undefined ? "" : props.semestre._id,
-            crawlText:
-              props.semestre.crawlText === undefined
-                ? ""
-                : props.semestre.crawlText,
-            crawlSubtitle:
-              props.semestre.crawlSubtitle === undefined
-                ? ""
-                : props.semestre.crawlSubtitle,
-            crawlTitle:
-              props.semestre.crawlTitle === undefined
-                ? ""
-                : props.semestre.crawlTitle,
-            materias:
-              props.semestre.materias === undefined
-                ? []
-                : props.semestre.materias,
-            num: 0
-          }
-        : {
-            _id: "",
-            crawlText: "",
-            crawlTitle: "",
-            crawlSubtitle: "",
-            materias: [],
-            num: 0
-          };
+    this.state = {
+      _id: "",
+      crawlText: "",
+      crawlTitle: "",
+      crawlSubtitle: "",
+      materias: [],
+      num: 0,
+      isModalOpen: false,
+      materia: {},
+      index: -1
+    };
   }
 
   handleMateriaChange(index, materia) {
+    console.log("INDEX MATERIA >> ", index, materia);
     let materias = this.state.materias;
     if (index === -1) {
       materias.push(materia);
@@ -56,6 +41,19 @@ export default class SemesterForm extends Component {
     this.setState({ materias });
   }
 
+  componentDidMount() {
+    if (this.props.semestre !== undefined) {
+      const {
+        _id,
+        crawlSubtitle,
+        crawlText,
+        crawlTitle,
+        materias,
+        num
+      } = this.props.semestre;
+      this.setState({ _id, crawlSubtitle, crawlText, crawlTitle, materias, num });
+    }
+  }
   async saveSemester() {
     if (this.state._id === "") {
       let response = await Axios.get(
@@ -80,19 +78,27 @@ export default class SemesterForm extends Component {
         {
           _id: this.state._id,
           num: this.state.num,
-          crawlText: this.state.crawlText,
+          crawlTitle: this.state.crawlTitle,
           crawlSubtitle: this.state.crawlSubtitle,
           crawlText: this.state.crawlText,
           materias: this.state.materias
         }
       );
+      this.setState({ saved: true });
       console.log(result);
     }
   }
   render() {
+    // console.log("THIS>PROPS >> ", this.props);
     return !this.state.saved ? (
-      <form>
-        <Col lg={12}>
+      <form> 
+      
+        <header className={"text-center"}>
+            <Link to={"/admin/home"}>  <img src={mainLogo}  alt={"star wars logo"}/> </Link>
+        </header>
+        <Col lg={8} lgOffset={2} md={8} mdOffset={2}>
+    
+          <h1 style={{ textAlign: "center" }}>Informações do Semestre</h1>
           <br />
           Crawl Title :{" "}
           <FormControl
@@ -116,7 +122,15 @@ export default class SemesterForm extends Component {
             <Button
               bsStyle="primary"
               bsSize="large"
-              style={{ marginTop: 10 }}
+              style={{ marginTop: 10, marginBottom: 10 }}
+              onClick={() =>
+                this.setState({
+                  isModalOpen: true,
+                  materia: {},
+                  adicionando: true,
+                  index: -1
+                })
+              }
               // onClick={() => this.saveSemester()}
             >
               Adicionar Matéria
@@ -132,27 +146,29 @@ export default class SemesterForm extends Component {
               </thead>
               <tbody>
                 {this.state.materias
-                  .sort((a, b) => a.name.localeCompare(b.crawlTitle))
-                  .map(materia => (
+                  // .sort((a, b) => a.name.localeCompare(b.name))
+                  .map((materia, index) => (
                     <tr key={materia._id + materia.link}>
-                      <td>{materia.name}</td>
+                      <td>{materia.nome_materia}</td>
                       <td
                         style={{ cursor: "pointer" }}
-                        // onClick={() =>
-                        //   this.setState({
-                        //     editSemester: true,
-                        //     semester_id: semestre._id
-                        //   })
-                        // }
+                        onClick={() =>
+                          this.setState({
+                            isModalOpen: true,
+                            materia: materia,
+                            adicionando: false,
+                            index
+                          })
+                        }
                       >
                         Editar
                       </td>
-                      <td
+                      {/* <td
                         style={{ cursor: "pointer" }}
                         // onClick={() => this.handleDelete(semestre._id)}
                       >
                         Excluir
-                      </td>
+                      </td> */}
                     </tr>
                   ))}
               </tbody>
@@ -168,6 +184,19 @@ export default class SemesterForm extends Component {
             Salvar
           </Button>
         </Col>
+        <MateriaModal
+          materia={this.state.materia}
+          closeModal={() => this.setState({ isModalOpen: false })}
+          openModal={() => this.setState({ isModalOpen: true })}
+          modalIsOpen={this.state.isModalOpen}
+          adicionando={this.state.adicionando}
+          index={this.state.index}
+          saveMateria={(index, materia) =>
+            this.handleMateriaChange(index, materia)
+          }
+
+          // refreshBio={() => this.refreshBio()}
+        />
       </form>
     ) : (
       <Redirect to="/admin/home" />

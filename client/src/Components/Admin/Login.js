@@ -9,7 +9,8 @@ export default class Login extends Component {
     super();
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      loggedIn: false
     };
   }
 
@@ -27,6 +28,7 @@ export default class Login extends Component {
       if (response.status === 200) {
         console.log("LOGGED IN!");
         localStorage.setItem("loggedIn", true);
+        this.setState({loggedIn: true});
       } else {
         console.log("ERR!");
         localStorage.setItem("loggedIn", false);
@@ -38,7 +40,7 @@ export default class Login extends Component {
   };
   render() {
     console.log("GET ITEM >> ", localStorage.getItem("loggedIn") === "true");
-    return localStorage.getItem("loggedIn") === "true" ? (
+    return (this.state.loggedIn || localStorage.getItem("loggedIn") === "true") ? (
       <Redirect to="/admin/home" />
     ) : (
       <form>

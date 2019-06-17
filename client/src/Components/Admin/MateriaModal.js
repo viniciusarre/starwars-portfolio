@@ -46,7 +46,7 @@ export default class MateriaModal extends React.Component {
   }
 
   async saveMateria() {
-    this.props.saveMateria({
+    this.props.saveMateria(this.props.index, {
       nome_materia: this.state.nome_materia,
       descricao: this.state.descricao,
       link: this.state.link
@@ -63,6 +63,13 @@ export default class MateriaModal extends React.Component {
     this.props.closeModal();
   }
 
+  componentDidMount() {
+    if (this.props.adicionando === false) {
+      const { nome_materia, descricao, link } = this.props.materia;
+      this.setState({ nome_materia, descricao, link });
+    }
+  }
+
   render() {
     return (
       <div>
@@ -75,7 +82,10 @@ export default class MateriaModal extends React.Component {
         >
           {/* <h2 ref={subtitle => (this.subtitle = subtitle)}>Editan</h2> */}
 
-          <form>
+          <form style={{ color: "black" }}>
+            <h1 style={{ textAlign: "center" }}>
+              {this.props.adicionando ? "Adicionando " : "Alterando "} Matéria
+            </h1>
             <Col lg={12}>
               <Button bsStyle="warning" onClick={() => this.closeModal()}>
                 Fechar
@@ -88,6 +98,8 @@ export default class MateriaModal extends React.Component {
               />
               Descrição:{" "}
               <FormControl
+                componentClass="textarea"
+                rows="3"
                 onChange={e => this.setState({ descricao: e.target.value })}
                 value={this.state.descricao}
               />

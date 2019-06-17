@@ -12,6 +12,8 @@ import md5 from "md5";
 import axios from "axios";
 import { Redirect } from "react-router";
 import BioModal from "./BioModal";
+import mainLogo from "../../logo_portfolio.png";
+import {Link} from "react-router-dom";
 
 const customStyles = {
   content: {
@@ -26,7 +28,8 @@ export default class Main extends Component {
       bio: [],
       isModalOpen: false,
       editSemester: false,
-      semester_id: "new"
+      semester_id: "new",
+      loggedOut: false
     };
   }
   async refreshBio() {
@@ -52,6 +55,11 @@ export default class Main extends Component {
     this.setState({ semestres: result.data });
   }
 
+  logOut(){
+    this.setState({loggedOut: true});
+    localStorage.setItem("loggedIn", false)
+  }
+
   async componentDidMount() {
     let result = await axios.get(
       "https://starwars-portfolio.herokuapp.com/getSemesters"
@@ -70,95 +78,117 @@ export default class Main extends Component {
     ) : this.state.editSemester === true ? (
       <Redirect to={"/admin/semestre/" + this.state.semester_id} />
     ) : (
-      <Row>
-        <h1 style={{ textAlign: "center" }}>Painel de Admin</h1>
-        <Col lg={8} lgOffset={2} md={8} mdOffset={2}>
-          <div style={{ marginTop: "5em", color: "white" }}>
-            <h1 style={{ textAlign: "center" }}>Semestres</h1>
-            <Button
-              bsStyle="primary"
-              bsSize="large"
-              style={{ marginTop: 10, marginBottom: 10, textAlign: "right" }}
-              onClick={() =>
-                this.setState({ editSemester: true, semester_id: "new" })
-              }
-            >
-              Adicionar Semestre
-            </Button>
-            <Table bordered condensed>
-              <thead style={{ color: "#feda4a" }}>
-                <tr>
-                  {/* <th>#</th> */}
-                  <th>Nome do Semestre</th>
-                  <th colSpan="2">Ações</th>
-                  {/* <th>Username</th> */}
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.semestres
-                  .sort((a, b) => a.crawlTitle.localeCompare(b.crawlTitle))
-                  .map(semestre => (
-                    <tr key={semestre._id}>
-                      <td>{semestre.crawlTitle}</td>
+      <div>
+        <header className={"text-center"}>
+            <Link to={"/"}>  <img src={mainLogo}  alt={"star wars logo"}/> </Link>
+        </header>
+        <Row>
+          
+        {/* <Col lg={8} lgOffset={2} md={8} mdOffset={2}> */}
+     
+        
+          {/* </Col> */}
+          <Col lg={8} lgOffset={2} md={8} mdOffset={2}>
+            <div>
+              <h1 style={{ textAlign: "center" }}>Painel de Admin</h1>
+             
+            </div>
+            <div style={{ marginTop: "5em", color: "white" }}>
+              <h1 style={{ textAlign: "center" }}>Semestres</h1>
+              <Button
+                    bsStyle="danger"
+                    bsSize="large"
+               
+                    style={{marginRight: 30, float: "right" }}
+                    onClick={  ()=>this.logOut()}
+                  >
+                  Sair
+              </Button>
+              <Button
+                bsStyle="primary"
+                bsSize="large"
+                style={{ marginTop: 10, marginBottom: 10, textAlign: "right" }}
+                onClick={() =>
+                  this.setState({ editSemester: true, semester_id: "new" })
+                }
+              >
+                Adicionar Semestre
+              </Button>
+              <Table bordered condensed>
+                <thead style={{ color: "#feda4a" }}>
+                  <tr>
+                    {/* <th>#</th> */}
+                    <th>Nome do Semestre</th>
+                    <th colSpan="2">Ações</th>
+                    {/* <th>Username</th> */}
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.semestres
+                    .sort((a, b) => a.crawlTitle.localeCompare(b.crawlTitle))
+                    .map(semestre => (
+                      <tr key={semestre._id}>
+                        <td>{semestre.crawlTitle}</td>
+                        <td
+                          style={{ cursor: "pointer" }}
+                          onClick={() =>
+                            this.setState({
+                              editSemester: true,
+                              semester_id: semestre._id
+                            })
+                          }
+                        >
+                          Editar
+                        </td>
+                        <td
+                          style={{ cursor: "pointer" }}
+                          onClick={() => this.handleDelete(semestre._id)}
+                        >
+                          Excluir
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </Table>
+            </div>
+            <div style={{ marginTop: "5em", color: "white" }}>
+              <h1 style={{ textAlign: "center" }}>Perfil</h1>
+              <Table bordered condensed>
+                <thead style={{ color: "#feda4a" }}>
+                  <tr>
+                    {/* <th>#</th> */}
+                    <th>Perfil</th>
+                    <th colSpan="2">Ações</th>
+                    {/* <th>Username</th> */}
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.bio.map(bio => (
+                    <tr key={bio._id}>
+                      <td>{bio.title}</td>
                       <td
+                        onClick={() => this.setState({ isModalOpen: true })}
                         style={{ cursor: "pointer" }}
-                        onClick={() =>
-                          this.setState({
-                            editSemester: true,
-                            semester_id: semestre._id
-                          })
-                        }
                       >
                         Editar
                       </td>
-                      <td
-                        style={{ cursor: "pointer" }}
-                        onClick={() => this.handleDelete(semestre._id)}
-                      >
-                        Excluir
-                      </td>
                     </tr>
                   ))}
-              </tbody>
-            </Table>
-          </div>
-          <div style={{ marginTop: "5em", color: "white" }}>
-            <h1 style={{ textAlign: "center" }}>Perfil</h1>
-            <Table bordered condensed>
-              <thead style={{ color: "#feda4a" }}>
-                <tr>
-                  {/* <th>#</th> */}
-                  <th>Perfil</th>
-                  <th colSpan="2">Ações</th>
-                  {/* <th>Username</th> */}
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.bio.map(bio => (
-                  <tr key={bio._id}>
-                    <td>{bio.title}</td>
-                    <td
-                      onClick={() => this.setState({ isModalOpen: true })}
-                      style={{ cursor: "pointer" }}
-                    >
-                      Editar
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-            <div id="bioModal">
-              <BioModal
-                bio={bio}
-                closeModal={() => this.setState({ isModalOpen: false })}
-                openModal={() => this.setState({ isModalOpen: true })}
-                modalIsOpen={this.state.isModalOpen}
-                refreshBio={() => this.refreshBio()}
-              />
+                </tbody>
+              </Table>
+              <div id="bioModal">
+                <BioModal
+                  bio={bio}
+                  closeModal={() => this.setState({ isModalOpen: false })}
+                  openModal={() => this.setState({ isModalOpen: true })}
+                  modalIsOpen={this.state.isModalOpen}
+                  refreshBio={() => this.refreshBio()}
+                />
+              </div>
             </div>
-          </div>
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      </div>
     );
   }
 }
