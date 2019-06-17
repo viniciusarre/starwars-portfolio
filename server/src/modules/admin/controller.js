@@ -35,9 +35,16 @@ export const login = (req, res, next) => {
 };
 
 export const createSemester = (req, res, next) => {
-  const { num, nome, materias, crawTitle, crawlSubtitle, crawlText } = req.body;
+  const {
+    num,
+    nome,
+    materias,
+    crawlTitle,
+    crawlSubtitle,
+    crawlText
+  } = req.body;
   helper
-    .createSemester(num, nome, materias, crawTitle, crawlSubtitle, crawlText)
+    .createSemester(num, nome, materias, crawlTitle, crawlSubtitle, crawlText)
     .then(result => {
       res.status(200).json(result);
     })

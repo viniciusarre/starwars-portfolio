@@ -69,10 +69,13 @@ export default class BioModal extends React.Component {
           style={customStyles}
           contentLabel="Editar Perfil"
         >
-          <h2 ref={subtitle => (this.subtitle = subtitle)}>Editar Perfil</h2>
+          {/* <h2 ref={subtitle => (this.subtitle = subtitle)}>Editar Perfil</h2> */}
 
           <form>
             <Col lg={12}>
+              <h1 style={{ color: "black", textAlign: "center" }}>
+                Editando perfil
+              </h1>
               <Button bsStyle="warning" onClick={() => this.closeModal()}>
                 Fechar
               </Button>{" "}

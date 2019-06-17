@@ -16,10 +16,13 @@ export default class Login extends Component {
   login = async () => {
     console.log("LOGIN< PASSWORD ", this.state.email, md5(this.state.password));
     try {
-      let response = await Axios.post("http://localhost:5000/login", {
-        email: this.state.email,
-        password: md5(this.state.password)
-      });
+      let response = await Axios.post(
+        "https://starwars-portfolio.herokuapp.com/login",
+        {
+          email: this.state.email,
+          password: md5(this.state.password)
+        }
+      );
       console.log("RESPONSE >> ", response);
       if (response.status === 200) {
         console.log("LOGGED IN!");

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import SemesterForm from "./SemesterForm";
 
 export default class SemesterAdmin extends Component {
   constructor() {
@@ -41,11 +42,17 @@ export default class SemesterAdmin extends Component {
           crawlSubtitle: semester.crawlSubtitle,
           crawlTitle: semester.crawlTitle,
           crawlText: semester.crawlText,
-          materias: semester.materias
+          materias: semester.materias,
+          num: semester.num
         });
       } catch (err) {
         console.log("ERR", err);
       }
+    } else {
+      let request = await Axios.get(
+        "https://starwars-portfolio.herokuapp.com/getSemesters"
+      );
+      this.setState({ number: request.data.length + 1 });
     }
   }
   render() {
@@ -59,7 +66,11 @@ export default class SemesterAdmin extends Component {
     let link = this.props.match.params.semester_id;
     console.log("PROPS >>  ", this.props);
     console.log("LINK >>  ", link);
-    return (
+    return link === "new" ? (
+      <div>
+        <SemesterForm />
+      </div>
+    ) : (
       <div>
         Hello world!
         <div>Hello world!</div>

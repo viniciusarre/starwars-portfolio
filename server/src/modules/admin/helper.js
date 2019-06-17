@@ -53,7 +53,7 @@ export const createSemester = (
   num,
   nome,
   materias,
-  crawTitle,
+  crawlTitle,
   crawlSubtitle,
   crawlText
 ) => {
@@ -62,7 +62,7 @@ export const createSemester = (
       num,
       nome,
       materias,
-      crawTitle,
+      crawlTitle,
       crawlSubtitle,
       crawlText
     });

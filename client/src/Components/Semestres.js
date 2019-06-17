@@ -161,6 +161,7 @@ class Semestres extends Component {
                   <Col lg={12} md={12}>
                     {semestres.length > 0 &&
                       semestres
+                        // .filter(semestre => semestre.crawlTitle !== undefined)
                         .sort((p, n) => p.title.localeCompare(n.title))
                         .map((s, i) => (
                           <Col lg={6} md={3} key={"#" + s.title}>
@@ -175,19 +176,19 @@ class Semestres extends Component {
                                 </span>
                               </Body>
                               <Footer>
-                                {i < 5 && (
+                                {
                                   <Link to={"/semestre/" + (i + 1)}>
                                     <small> Abrir </small>
                                   </Link>
-                                )}
-                                {i === 5 && (
+                                }
+                                {/* {i === 5 && (
                                   <a
                                     className="btn disabled"
                                     style={{ fontSize: "0.7em" }}
                                   >
                                     Continua...
                                   </a>
-                                )}
+                                )} */}
                               </Footer>
                             </Panel>
                           </Col>

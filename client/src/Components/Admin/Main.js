@@ -39,6 +39,17 @@ export default class Main extends Component {
 
   async handleDelete(_id) {
     console.log("HANDLE DELETE > ", _id);
+    let request = await axios.post(
+      "https://starwars-portfolio.herokuapp.com/deleteSemester",
+      {
+        _id: _id
+      }
+    );
+    let result = await axios.get(
+      "https://starwars-portfolio.herokuapp.com/getSemesters"
+    );
+    console.log(result);
+    this.setState({ semestres: result.data });
   }
 
   async componentDidMount() {
@@ -64,6 +75,16 @@ export default class Main extends Component {
         <Col lg={8} lgOffset={2} md={8} mdOffset={2}>
           <div style={{ marginTop: "5em", color: "white" }}>
             <h1 style={{ textAlign: "center" }}>Semestres</h1>
+            <Button
+              bsStyle="primary"
+              bsSize="large"
+              style={{ marginTop: 10, marginBottom: 10, textAlign: "right" }}
+              onClick={() =>
+                this.setState({ editSemester: true, semester_id: "new" })
+              }
+            >
+              Adicionar Semestre
+            </Button>
             <Table bordered condensed>
               <thead style={{ color: "#feda4a" }}>
                 <tr>
