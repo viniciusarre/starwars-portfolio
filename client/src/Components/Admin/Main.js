@@ -11,14 +11,34 @@ import {
 import md5 from "md5";
 import axios from "axios";
 import { Redirect } from "react-router";
+import BioModal from "./BioModal";
 
+const customStyles = {
+  content: {
+    width: "100vh"
+  }
+};
 export default class Main extends Component {
   constructor() {
     super();
     this.state = {
       semestres: [],
-      bio: []
+      bio: [],
+      isModalOpen: false,
+      editSemester: false,
+      semester_id: "new"
     };
+  }
+  async refreshBio() {
+    let result = await axios.get(
+      "https://starwars-portfolio.herokuapp.com/getBio"
+    );
+    console.log(result);
+    this.setState({ bio: result.data });
+  }
+
+  async handleDelete(_id) {
+    console.log("HANDLE DELETE > ", _id);
   }
 
   async componentDidMount() {
@@ -32,9 +52,12 @@ export default class Main extends Component {
     this.setState({ bio: result.data });
   }
   render() {
+    let bio = this.state.bio[0] === undefined ? [] : this.state.bio[0];
     // console.log("GET ITEM >> ", localStorage.getItem("loggedIn") === "true");
     return localStorage.getItem("loggedIn") !== "true" ? (
       <Redirect to="/admin/" />
+    ) : this.state.editSemester === true ? (
+      <Redirect to={"/admin/semestre/" + this.state.semester_id} />
     ) : (
       <Row>
         <h1 style={{ textAlign: "center" }}>Painel de Admin</h1>
@@ -54,10 +77,25 @@ export default class Main extends Component {
                 {this.state.semestres
                   .sort((a, b) => a.crawlTitle.localeCompare(b.crawlTitle))
                   .map(semestre => (
-                    <tr>
+                    <tr key={semestre._id}>
                       <td>{semestre.crawlTitle}</td>
-                      <td>Editar</td>
-                      <td>Excluir</td>
+                      <td
+                        style={{ cursor: "pointer" }}
+                        onClick={() =>
+                          this.setState({
+                            editSemester: true,
+                            semester_id: semestre._id
+                          })
+                        }
+                      >
+                        Editar
+                      </td>
+                      <td
+                        style={{ cursor: "pointer" }}
+                        onClick={() => this.handleDelete(semestre._id)}
+                      >
+                        Excluir
+                      </td>
                     </tr>
                   ))}
               </tbody>
@@ -76,13 +114,27 @@ export default class Main extends Component {
               </thead>
               <tbody>
                 {this.state.bio.map(bio => (
-                  <tr>
+                  <tr key={bio._id}>
                     <td>{bio.title}</td>
-                    <td>Editar</td>
+                    <td
+                      onClick={() => this.setState({ isModalOpen: true })}
+                      style={{ cursor: "pointer" }}
+                    >
+                      Editar
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </Table>
+            <div id="bioModal">
+              <BioModal
+                bio={bio}
+                closeModal={() => this.setState({ isModalOpen: false })}
+                openModal={() => this.setState({ isModalOpen: true })}
+                modalIsOpen={this.state.isModalOpen}
+                refreshBio={() => this.refreshBio()}
+              />
+            </div>
           </div>
         </Col>
       </Row>

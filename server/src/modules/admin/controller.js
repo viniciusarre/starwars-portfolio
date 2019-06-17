@@ -161,3 +161,19 @@ export const createBio = (req, res, next) => {
       }
     });
 };
+
+export const getSemesterById = (req, res, next) => {
+  const { _id } = req.body;
+  helper
+    .getSemesterById(_id)
+    .then(result => {
+      res.status(200).json(result);
+    })
+    .catch(err => {
+      if (err === "NOT FOUND") {
+        res.status(404).json(err);
+      } else {
+        res.status(500).json(err);
+      }
+    });
+};

@@ -37,6 +37,7 @@ app.post("/createSemester/", AdminController.createSemester);
 app.post("/updateSemester/", AdminController.updateSemester);
 app.post("/deleteSemester/", AdminController.deleteSemester);
 app.post("/updateBio/", AdminController.updateBio);
+app.post("/getSemesterById/", AdminController.getSemesterById);
 // app.post("/createBio/", AdminController.createBio);
 
 app.listen(port, err => {

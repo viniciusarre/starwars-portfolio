@@ -173,3 +173,16 @@ export const createBio = (title, text) => {
       });
   });
 };
+
+export const getSemesterById = _id => {
+  return new Promise((resolve, reject) => {
+    Semestre.findOne({ _id })
+      .then(result => {
+        resolve(result);
+      })
+      .catch(err => {
+        console.log("getSemesterById ERR >> ", err);
+        reject(err);
+      });
+  });
+};
